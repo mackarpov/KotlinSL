@@ -13,13 +13,13 @@ fun makeUserPassword(length: Int): String {
     val specialSymbolsRange = ' '..'/'
     var userPassword = ""
 
-    do {
-        userPassword += "${digitsRange.random()}"
-
-        if (userPassword.length < length) {
-            userPassword += "${specialSymbolsRange.random()}"
+    for (i in 1 .. length) {
+        if (i % 2 == 0) {
+            userPassword += specialSymbolsRange.random()
+        } else {
+            userPassword += digitsRange.random()
         }
-    } while (userPassword.length < length)
+    }
 
     return userPassword
 }
