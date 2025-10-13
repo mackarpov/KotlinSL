@@ -10,7 +10,7 @@ fun main() {
         print("Хотите продолжить (Да/Нет)? ")
         val userAnswer = readln()
 
-    } while (userAnswer == "Да")
+    } while (userAnswer.equals("Да", ignoreCase = true))
 
     println("Пользователь выиграл $userWin партии!")
 }
@@ -26,14 +26,18 @@ fun runTournament(): Int {
     val computerNumber: Int = rollTheDice()
     println("Число на кубике: $computerNumber")
 
-    if (humanNumber > computerNumber) {
-        println("Победило человечество!\n")
-        return 1
-    } else if (humanNumber < computerNumber) {
-        println("Победила машина!\n")
-        return 0
-    } else {
-        println("Победила дружба!\n")
-        return 0
+    when {
+        humanNumber > computerNumber -> {
+            println("Победило человечество!\n")
+            return 1
+        }
+        humanNumber < computerNumber -> {
+            println("Победила машина!\n")
+            return 0
+        }
+        else -> {
+            println("Победила дружба!\n")
+            return 0
+        }
     }
 }
