@@ -1,0 +1,47 @@
+package org.example.lesson_11
+
+class User(
+    val id: Int,
+    val login: String,
+    var password: String,
+    val email: String,
+    var bio: String = "",
+) {
+    fun getUserInfo() {
+        println("Информация о пользователе $id")
+        println("UserID = $id")
+        println("UserLogin = $login")
+        println("UserPassword = $password")
+        println("UserEmail = $email")
+        println("UserBIO = $bio")
+    }
+
+    fun setNewBio() {
+        print("Введите информацию о вашем BIO: ")
+        bio = readln()
+    }
+
+    fun changePassword() {
+        print("Введите текущий пароль: ")
+        val currentPassword = readln()
+        if (currentPassword == password) {
+            print("Введите новый пароль: ")
+            password = readln()
+            println("Пароль изменен")
+        }
+    }
+}
+
+fun main() {
+
+    val user = User(
+        id = 1,
+        login = "Dmitry",
+        password = "Karpov",
+        email = "karpov2713@gmail.com",
+        bio = "Моя биометрия"
+    )
+
+    user.changePassword()
+    user.getUserInfo()
+}
