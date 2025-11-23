@@ -5,18 +5,15 @@ class User(
     val login: String,
     var password: String,
     val email: String,
+    var bio: String,
 ) {
 
-    var bio: String = ""
-
     fun setNewBio() {
-
         print("Введите информацию о вашем BIO: ")
         bio = readln()
     }
 
     fun getUserInfo() {
-
         println("Информация о пользователе $id")
         println("UserID = $id")
         println("UserLogin = $login")
@@ -26,7 +23,6 @@ class User(
     }
 
     fun changePassword() {
-
         print("Введите текущий пароль: ")
         val currentPassword = readln()
         if (currentPassword == password) {
@@ -44,6 +40,7 @@ fun main() {
         login = "Dmitry",
         password = "Karpov",
         email = "karpov2713@gmail.com",
+        bio = ""
     )
 
     user.setNewBio()
