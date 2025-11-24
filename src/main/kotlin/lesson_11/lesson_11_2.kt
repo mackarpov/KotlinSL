@@ -1,11 +1,11 @@
 package org.example.lesson_11
 
-class User(
+class User2(
     val id: Int,
     val login: String,
     var password: String,
     val email: String,
-    var bio: String,
+    var bio: String = "Моя биометрия",
 ) {
 
     fun setNewBio() {
@@ -35,12 +35,11 @@ class User(
 
 fun main() {
 
-    val user = User(
+    val user = User2(
         id = 1,
         login = "Dmitry",
         password = "Karpov",
         email = "karpov2713@gmail.com",
-        bio = ""
     )
 
     user.setNewBio()
