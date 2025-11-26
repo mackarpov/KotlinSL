@@ -6,17 +6,11 @@ class Room(
     val listOfUsers: MutableList<User3> = mutableListOf(),
 ) {
     fun addUserToRoom(user: User3) {
-
         listOfUsers += user
     }
 
     fun updateUserStatusInTheRoom(nickname: String, userStatus: String) {
-
-        val foundUser = listOfUsers.find { it.nickname == nickname }
-
-        if (foundUser != null) {
-            foundUser.userStatus = userStatus
-        }
+        val foundUser = listOfUsers.find { it.nickname == nickname }?.userStatus = userStatus
     }
 }
 
@@ -27,13 +21,12 @@ class User3(
 )
 
 fun main() {
-
     val room = Room("Комната", "Красная комната")
     val user1 = User3("Max", "Fenix", "разговаривает")
     val user2 = User3("John", "Cat", "пользователь заглушен")
 
-    room.listOfUsers.add(user1)
-    room.listOfUsers.add(user2)
+    room.addUserToRoom(user1)
+    room.addUserToRoom(user2)
 
     room.updateUserStatusInTheRoom("Max", "пользователь заглушен")
     room.updateUserStatusInTheRoom("John", "разговаривает")
