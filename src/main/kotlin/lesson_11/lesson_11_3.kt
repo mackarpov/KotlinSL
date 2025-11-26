@@ -3,26 +3,38 @@ package org.example.lesson_11
 class Room(
     val cover: String,
     val title: String,
-    var listOfUsers: MutableList<User3>,
+    val listOfUsers: MutableList<User3> = mutableListOf(),
 ) {
     fun addUserToRoom(user: User3) {
 
+        listOfUsers += user
     }
 
-    fun updateUserStatusInTheRoom(user: User3) {
+    fun updateUserStatusInTheRoom(nickname: String, userStatus: String) {
 
+        val foundUser = listOfUsers.find { it.nickname == nickname }
+
+        if (foundUser != null) {
+            foundUser.userStatus = userStatus
+        }
     }
 }
 
 class User3(
     val nickname: String,
     val avatar: String,
-    val userStatus: List<String>,
+    var userStatus: String,
 )
 
 fun main() {
 
-    val user = User3("nickname", "avatar", listOf("разговаривает", "микрофон выключен", "пользователь заглушен"))
+    val room = Room("Комната", "Красная комната")
+    val user1 = User3("Max", "Fenix", "разговаривает")
+    val user2 = User3("John", "Cat", "пользователь заглушен")
 
-    val room = Room("cover", "title", mutableListOf(user))
+    room.listOfUsers.add(user1)
+    room.listOfUsers.add(user2)
+
+    room.updateUserStatusInTheRoom("Max", "пользователь заглушен")
+    room.updateUserStatusInTheRoom("John", "разговаривает")
 }
