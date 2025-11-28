@@ -9,13 +9,13 @@ class Ingredient(
 class Recipe(
     val title: String,
     val listOfIngredients: List<Ingredient> = emptyList(),
-    val imageURL: String,
-    val description: String,
+    val imageUrl: String,
+    val cookingMethod: List<String>,
 )
 
 class Category(
     val title: String,
     val listOfRecipes: List<Recipe> = emptyList(),
-    val imageURL: String,
+    val imageUrl: String,
     val description: String,
 )
