@@ -10,7 +10,7 @@ class Room(
     }
 
     fun updateUserStatusInTheRoom(nickname: String, userStatus: String) {
-        val foundUser = listOfUsers.find { it.nickname == nickname }?.userStatus = userStatus
+        listOfUsers.find { it.nickname == nickname }?.userStatus = userStatus
     }
 }
 
